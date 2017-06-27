@@ -10,19 +10,23 @@
 
 const path = require('path')
 const webpack = require('webpack')
+const vueLoaderConfig = require('./vue-loader.conf')
 
 const bannerPlugin = new webpack.BannerPlugin(
   '// { "framework": "Vue" }\n'
 )
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 function getBaseConfig() {
   return {
+    devtool: '#cheap-module-eval-source-map',
     entry: {
       app: path.resolve('./src/app.js')
     },
     output: {
-      path: path.resolve(__dirname, 'dist')
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: '/'
     },
     resolve: {
       extensions: ['.js', '.vue', '.json'],
@@ -65,7 +69,8 @@ function getBaseConfig() {
         },
         {
           test: /\.vue(\?[^?]+)?$/,
-          use: []
+          loader: 'vue-loader',
+          options: vueLoaderConfig
         },
         {
           test: /\.gif$/,
@@ -86,14 +91,21 @@ function getBaseConfig() {
     //   }
     // })]
     // },
-    plugins: [bannerPlugin, new HtmlWebpackPlugin({
-    })]
+    plugins: [bannerPlugin,
+      // new webpack.HotModuleReplacementPlugin(),
+      // new webpack.NoEmitOnErrorsPlugin(),
+      new FriendlyErrorsPlugin(),
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: 'src/index.html',
+        inject: true
+      })]
   }
 }
 
 const webConfig = getBaseConfig()
 webConfig.output.filename = '[name].web.js'
-webConfig.module.rules[3].use.push('vue-loader')
+// webConfig.module.rules[3].use.push('vue-loader')
 
 // const weexConfig = getBaseConfig()
 // weexConfig.output.filename = '[name].weex.js'
@@ -102,8 +114,6 @@ webConfig.module.rules[3].use.push('vue-loader')
 const vuxLoader = require('vux-loader')
 
 module.exports = [vuxLoader.merge(webConfig, {
-  plugins: [{
-    name: 'vux-ui'
-  }]
+  plugins: ['vux-ui', 'progress-bar', 'duplicate-style']
 })]
 // module.exports = [webConfig]

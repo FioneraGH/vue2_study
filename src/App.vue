@@ -1,15 +1,15 @@
+<style lang="less">
+@import '~vux/src/styles/reset.less';
+</style>
+
 <template>
-  <div @clickbackitem="back">
-    <router-view style="flex:1"></router-view>
+  <div id="app">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  methods: {
-    back() {
-      this.$router.back()
-    }
-  }
+  name: 'app'
 }
 </script>
