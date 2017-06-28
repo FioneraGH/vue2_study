@@ -73,7 +73,7 @@ function getBaseConfig() {
           options: vueLoaderConfig
         },
         {
-          test: /\.gif$/,
+          test: /\.(png|gif)$/,
           loader: 'file-loader',
           exclude: /node_modules/
         }
