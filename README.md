@@ -1,1 +1,1 @@
-# weex-vue-wechat
+# vue2-vux2-demo
