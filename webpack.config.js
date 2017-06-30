@@ -20,7 +20,8 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 function getBaseConfig() {
   return {
-    devtool: '#cheap-module-eval-source-map',
+    // devtool: '#cheap-module-eval-source-map',
+    devtool: '#source-map',
     entry: {
       app: path.resolve('./src/app.js')
     },
@@ -70,12 +71,14 @@ function getBaseConfig() {
         {
           test: /\.vue(\?[^?]+)?$/,
           loader: 'vue-loader',
-          options: vueLoaderConfig
+          options: {
+            vueLoaderConfig,
+            esModule: false
+          }
         },
         {
-          test: /\.(png|gif)$/,
-          loader: 'file-loader',
-          exclude: /node_modules/
+          test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+          loader: 'file-loader'
         }
       ]
     },
