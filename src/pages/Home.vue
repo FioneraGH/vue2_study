@@ -4,13 +4,18 @@
 
 <template>
   <div>
-    Home
+    <span @click="test">Home</span>
   </div>
 </template>
 
 <script>
 export default {
   components: {
+  },
+  methods: {
+    test() {
+      console.log(undefined)
+    }
   }
 }
 </script>

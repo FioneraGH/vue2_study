@@ -9,14 +9,12 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: function (resolve) {
-        require(['./pages/Home.vue'], resolve)
-      }
+      component: require('./pages/Home.vue')
     },
     {
       path: '/demo',
       name: 'Demo',
-      component: function (resolve) {
+      component: (resolve) => {
         require(['./pages/Demo.vue'], resolve)
       }
     },

@@ -5,6 +5,7 @@
     "vue-html": "html",
     "vue": "html"
   },
+  "vetur.format.html.wrap_line_length": 80,
   "eslint.validate": [
     "javascript",
     "javascriptreact",

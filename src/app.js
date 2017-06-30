@@ -55,7 +55,7 @@ router.beforeEach((to, from, next) => {
     // 如果没有来源，或者路由目标比来源的历史数大，或者目标和来源都是0，则视为路由前进，否则为路由回退
     // 比如来源存在且来源大于目标的历史数，则视为回退。由于根路由为0，因此所有目标为根路由的情况都是回退，除非来源也是根路由
     if (!fromIndex || parseInt(toIndex, 10) > parseInt(fromIndex, 10) || (toIndex === '0' && fromIndex === '0')) {
-      store.commit('updateDirection', { direction: 'forword' })
+      store.commit('updateDirection', { direction: 'forward' })
     } else {
       store.commit('updateDirection', { direction: 'reverse' })
     }
@@ -63,7 +63,7 @@ router.beforeEach((to, from, next) => {
     // 如果目标从来没有出现过，则必然是回退，且历史数+1
     history.setItem('history_count', ++historyCount)
     to.path !== '/' && history.setItem(to.path, historyCount)
-    store.commit('updateDirection', { direction: 'forword' })
+    store.commit('updateDirection', { direction: 'forward' })
   }
 
   // 判断路径是否携带http前缀，如果携带则使用window.location，否则继续路由
