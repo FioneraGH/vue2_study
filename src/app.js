@@ -42,8 +42,10 @@ sync(store, router)
 
 const history = window.sessionStorage
 history.clear()
-let historyCount = history.getItem('history_count') * 1 || 0
+let historyCount = history.getItem('history_count') * 1 || 2
 history.setItem('/', 0)
+history.setItem('/demo', 1)
+history.setItem('/person', 2)
 
 router.beforeEach((to, from, next) => {
   store.commit('updateLoadingStatus', { isLoading: true })

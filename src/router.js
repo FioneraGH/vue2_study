@@ -26,6 +26,13 @@ export default new Router({
       }
     },
     {
+      path: '/component/actionsheet',
+      name: 'Person',
+      component: function (resolve) {
+        require(['./component/ActionSheet.vue'], resolve)
+      }
+    },
+    {
       path: '/404',
       name: '404',
       component: Error404

@@ -1,6 +1,4 @@
 <style lang="less">
-@import '~vux/src/styles/1px.less';
-@import '~vux/src/styles/close.less';
 </style>
 
 <template>
