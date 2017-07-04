@@ -10,8 +10,6 @@
 
 <script>
 export default {
-  components: {
-  },
   methods: {
     test() {
       console.log(undefined)

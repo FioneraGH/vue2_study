@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server --colors"
+    "dev": "node webpack-dev-server.js"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -49,9 +49,9 @@
     "vue-loader": "^13.0.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.1.8",
-    "vux-loader": "^1.0.69",
+    "vux-loader": "^1.1.0",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0",
-    "yaml-loader": "^0.4.0"
+    "yaml-loader": "^0.5.0"
   }
 }

@@ -72,8 +72,8 @@ function getBaseConfig() {
           test: /\.vue(\?[^?]+)?$/,
           loader: 'vue-loader',
           options: {
-            vueLoaderConfig,
-            esModule: false
+            vueLoaderConfig
+            // esModule: false
           }
         },
         {
@@ -117,6 +117,9 @@ webConfig.output.filename = '[name].web.js'
 const vuxLoader = require('vux-loader')
 
 module.exports = [vuxLoader.merge(webConfig, {
-  plugins: ['vux-ui', 'progress-bar', 'duplicate-style']
+  plugins: ['vux-ui', 'progress-bar', 'duplicate-style', {
+    name: 'less-theme',
+    path: 'src/theme.less'
+  }]
 })]
 // module.exports = [webConfig]

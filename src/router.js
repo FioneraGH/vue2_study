@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: require('./pages/Home.vue')
+      component: require('./pages/Home.vue').default
     },
     {
       path: '/demo',
@@ -27,9 +27,16 @@ export default new Router({
     },
     {
       path: '/component/actionsheet',
-      name: 'Person',
+      name: 'Actionsheet',
       component: function (resolve) {
         require(['./component/ActionSheet.vue'], resolve)
+      }
+    },
+    {
+      path: '/component/alert',
+      name: 'Alert',
+      component: function (resolve) {
+        require(['./component/Alert.vue'], resolve)
       }
     },
     {

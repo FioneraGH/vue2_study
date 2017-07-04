@@ -4,7 +4,7 @@
 @import '~vux/src/styles/tap.less';
 
 body {
-  background-color: lightyellow;
+  background-color: lightgreen;
 }
 
 .vux-pop-out-enter-active,
