@@ -10,6 +10,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
+const utils = require('./utils')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 const bannerPlugin = new webpack.BannerPlugin(
@@ -71,10 +72,7 @@ function getBaseConfig() {
         {
           test: /\.vue(\?[^?]+)?$/,
           loader: 'vue-loader',
-          options: {
-            vueLoaderConfig
-            // esModule: false
-          }
+          options: vueLoaderConfig
         },
         {
           test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -108,7 +106,37 @@ function getBaseConfig() {
 
 const webConfig = getBaseConfig()
 webConfig.output.filename = '[name].web.js'
-// webConfig.module.rules[3].use.push('vue-loader')
+// deal with styles
+utils.styleLoaders({ sourceMap: false }).forEach(entry => {
+  // webConfig.module.rules.push(entry)
+})
+
+function obj2string(o) {
+  var r = []
+  if (typeof o === 'string') {
+    return '"' + o.replace(/(['"\\])/g, '\\$1').replace(/(\n)/g, '\\n').replace(/(\r)/g, '\\r').replace(/(\t)/g, '\\t') + '"'
+  }
+  if (typeof o === 'object') {
+    if (!o.sort) {
+      for (let i in o) {
+        r.push(i + ':' + obj2string(o[i]))
+      }
+      if (!/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)) {
+        r.push('toString:' + o.toString.toString())
+      }
+      r = '{' + r.join() + '}'
+    } else {
+      for (let i = 0; i < o.length; i++) {
+        r.push(obj2string(o[i]))
+      }
+      r = '[' + r.join() + ']'
+    }
+    return r
+  }
+  return o.toString()
+}
+
+console.log('The final configuration is:\n\n' + obj2string(webConfig.module) + '\n\nConfiguration end.\n')
 
 // const weexConfig = getBaseConfig()
 // weexConfig.output.filename = '[name].weex.js'
