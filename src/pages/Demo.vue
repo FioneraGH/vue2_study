@@ -16,8 +16,8 @@
 }
 
 .demo-icon {
-  height: 22px;
-  width: 22px;
+  height: 24px;
+  width: 24px;
 }
 </style>
 
@@ -27,9 +27,9 @@
       <flexbox-item :span="1/3" v-for="component in list" :key="component.name" class="cbox vux-1px-t vux-tap-active"
         @click.native="go(component.name.toLowerCase())">
         <div class="vux-1px-r cbox-inner">
-          <img class="demo-icon" src="../assets/vux_logo.png" :style="{color: component.color}"></img>
+          <img class="demo-icon" src="../assets/vux_logo.png"></img>
           <br>
-          <span :style="{fontSize: component.name.length > 12 ? '12px' : ''}">{{component.name}}</span>
+          <span :style="{fontSize: component.name.length > 12 ? '12px' : '14px'}">{{component.name.toUpperCase()}}</span>
         </div>
       </flexbox-item>
     </flexbox>

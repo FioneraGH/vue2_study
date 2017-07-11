@@ -40,6 +40,13 @@ export default new Router({
       }
     },
     {
+      path: '/component/badge',
+      name: 'Badge',
+      component: function (resolve) {
+        require(['./component/Badge.vue'], resolve)
+      }
+    },
+    {
       path: '/404',
       name: '404',
       component: Error404

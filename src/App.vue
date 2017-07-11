@@ -5,6 +5,7 @@
 
 body {
   background-color: lightgreen;
+  overflow-x: hidden;
 }
 
 .vux-pop-out-enter-active,
@@ -18,29 +19,36 @@ body {
   backface-visibility: hidden;
   perspective: 1000;
 }
+
 .vux-pop-out-enter {
-  opacity: 0;
+  // opacity: 0;
   transform: translate3d(-100%, 0, 0);
 }
+
 .vux-pop-out-leave-active {
-  opacity: 0;
+  // opacity: 0;
   transform: translate3d(100%, 0, 0);
 }
+
 .vux-pop-in-enter {
-  opacity: 0;
+  // opacity: 0;
   transform: translate3d(100%, 0, 0);
 }
+
 .vux-pop-in-leave-active {
-  opacity: 0;
+  // opacity: 0;
   transform: translate3d(-100%, 0, 0);
 }
 </style>
 
 <template>
   <div style="height:100%;">
-    <loading v-model="isLoading"></loading>
+    <div v-transfer-dom>
+      <loading v-model="isLoading"></loading>
+    </div>
+  
     <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
-      <router-view></router-view>
+      <router-view style="width:100%;overflow-x: hidden;"></router-view>
     </transition>
   
     <tabbar v-show="isTabShow" slot="bottom">
@@ -65,14 +73,19 @@ import { mapState } from 'vuex'
 import {
   Loading,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  TransferDomDirective as TransferDom
 } from 'vux'
 
 export default {
   components: {
     Loading,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    TransferDom
+  },
+  directives: {
+    TransferDom
   },
   computed: {
     ...mapState({
