@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
 </style>
 
 <template>
@@ -19,6 +19,7 @@
 
 <script>
 import { Badge, Group, Cell } from 'vux'
+
 export default {
   components: {
     Badge,

@@ -95,7 +95,7 @@ export default {
       direction: state => state.vux.direction
     }),
     isTabShow() {
-      return this.path === '/' || this.path === '/demo' || this.path === '/person'
+      return this.path === '/' || this.path === '/demo' || this.path === '/person' || true
     }
   }
 }

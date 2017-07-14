@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
 
 </style>
 
@@ -36,6 +36,7 @@
 
 <script>
 import { Actionsheet, Group, XSwitch, Toast } from 'vux'
+
 export default {
   components: {
     Actionsheet, Group, XSwitch, Toast

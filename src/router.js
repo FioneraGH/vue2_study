@@ -47,6 +47,13 @@ export default new Router({
       }
     },
     {
+      path: '/component/blur',
+      name: 'Blur',
+      component: function (resolve) {
+        require(['./component/Blur.vue'], resolve)
+      }
+    },
+    {
       path: '/404',
       name: '404',
       component: Error404

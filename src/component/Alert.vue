@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="less" scoped>
 
 </style>
 
@@ -20,6 +20,7 @@
 
 <script>
 import { Alert, Group, XSwitch, Cell } from 'vux'
+
 export default {
   components: {
     Alert, Group, XSwitch, Cell
