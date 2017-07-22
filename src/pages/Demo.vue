@@ -9,6 +9,7 @@
 .cbox {
   text-align: center;
 }
+
 .cbox-inner {
   padding: 16px 0;
   width: 100%;
@@ -29,7 +30,7 @@
         <div class="vux-1px-r cbox-inner">
           <img class="demo-icon" src="../assets/vux_logo.png"></img>
           <br>
-          <span :style="{fontSize: component.name.length > 12 ? '12px' : '14px'}">{{component.name.toUpperCase()}}</span>
+          <span :style="{fontSize: component.name.length > 12 ? '12px' : '14px'}">{{component.name.toUpperCase().slice(0,6)}}</span>
         </div>
       </flexbox-item>
     </flexbox>

@@ -54,6 +54,20 @@ export default new Router({
       }
     },
     {
+      path: '/component/button-tab',
+      name: 'Blur',
+      component: function (resolve) {
+        require(['./component/Button.vue'], resolve)
+      }
+    },
+    {
+      path: '/component/calendar',
+      name: 'Blur',
+      component: function (resolve) {
+        require(['./component/Calendar.vue'], resolve)
+      }
+    },
+    {
       path: '/404',
       name: '404',
       component: Error404

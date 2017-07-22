@@ -90,12 +90,14 @@ export default {
   computed: {
     ...mapState({
       route: state => state.route,
-      path: state => state.route.path,
-      isLoading: state => state.vux.isLoading,
+      isLoading: state => {
+        console.log('Loading Status Changed:' + state.vux.isLoading)
+        return state.vux.isLoading
+      },
       direction: state => state.vux.direction
     }),
     isTabShow() {
-      return this.path === '/' || this.path === '/demo' || this.path === '/person' || true
+      return this.route.path === '/' || this.route.path === '/demo' || this.route.path === '/person' || true
     }
   }
 }
