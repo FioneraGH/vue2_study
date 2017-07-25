@@ -78,6 +78,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(to => {
+  document.title = to.meta.title
   store.commit('updateLoadingStatus', { isLoading: false })
 })
 

@@ -9,13 +9,19 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: require('./pages/Home.vue').default
+      component: require('./pages/Home.vue').default,
+      meta: {
+        title: '主页'
+      }
     },
     {
       path: '/demo',
       name: 'Demo',
       component: (resolve) => {
         require(['./pages/Demo.vue'], resolve)
+      },
+      meta: {
+        title: '样例'
       }
     },
     {
@@ -23,6 +29,9 @@ export default new Router({
       name: 'Person',
       component: function (resolve) {
         require(['./pages/Person.vue'], resolve)
+      },
+      meta: {
+        title: '个人'
       }
     },
     {
@@ -30,6 +39,9 @@ export default new Router({
       name: 'Actionsheet',
       component: function (resolve) {
         require(['./component/ActionSheet.vue'], resolve)
+      },
+      meta: {
+        title: '操作列表'
       }
     },
     {
@@ -37,6 +49,9 @@ export default new Router({
       name: 'Alert',
       component: function (resolve) {
         require(['./component/Alert.vue'], resolve)
+      },
+      meta: {
+        title: '警告'
       }
     },
     {
@@ -44,6 +59,9 @@ export default new Router({
       name: 'Badge',
       component: function (resolve) {
         require(['./component/Badge.vue'], resolve)
+      },
+      meta: {
+        title: '红点'
       }
     },
     {
@@ -51,6 +69,9 @@ export default new Router({
       name: 'Blur',
       component: function (resolve) {
         require(['./component/Blur.vue'], resolve)
+      },
+      meta: {
+        title: '高斯模糊'
       }
     },
     {
@@ -58,6 +79,9 @@ export default new Router({
       name: 'Blur',
       component: function (resolve) {
         require(['./component/Button.vue'], resolve)
+      },
+      meta: {
+        title: '按钮选项卡'
       }
     },
     {
@@ -65,6 +89,9 @@ export default new Router({
       name: 'Blur',
       component: function (resolve) {
         require(['./component/Calendar.vue'], resolve)
+      },
+      meta: {
+        title: '日历'
       }
     },
     {

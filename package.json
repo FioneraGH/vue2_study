@@ -20,7 +20,7 @@
     "vue-router": "^2.7.0",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.2.0",
-    "vux": "^2.5.3",
+    "vux": "^2.5.4",
     "webpack": "^3.3.0"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "^3.7.0",
+    "eslint-plugin-vue": "^3.8.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
@@ -51,8 +51,8 @@
     "vue-loader": "^13.0.2",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.4.2",
-    "vux-loader": "^1.1.2",
-    "webpack-dev-server": "^2.5.1",
+    "vux-loader": "^1.1.4",
+    "webpack-dev-server": "^2.6.1",
     "yaml-loader": "^0.5.0"
   }
 }
