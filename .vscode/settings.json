@@ -2,19 +2,22 @@
 {
   "editor.tabSize": 2,
   "emmet.syntaxProfiles": {
-    "vue-html": "html",
-    "vue": "html"
+    "vue": "html",
+    "vue-html": "html"
   },
-  "vetur.format.html.wrap_line_length": 80,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "html",
-    "vue"
+    "vue",
+    "vue-html"
   ],
   "eslint.options": {
     "plugins": [
       "html"
     ]
-  }
+  },
+  "vetur.validation.template":false,
+  "prettier.singleQuote": true,
+  "prettier.semi": false
 }
